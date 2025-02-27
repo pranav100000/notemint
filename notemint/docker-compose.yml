@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  notemint:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./midi_files:/app/midi_files
+      - .:/app
+    environment:
+      - MIDI_FILES_DIR=/app/midi_files
+    restart: unless-stopped
